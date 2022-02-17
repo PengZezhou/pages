@@ -6,18 +6,23 @@
         align-items:center; 
         justify-content:center;
     }
+    #text1{
+        font-size: 40px;
+        font-weight: bolder;
+        display: block;
+        font-family: cursive;
+    }
 </style>
 </head>
 <body>
     <div class="content">
         <img id="img1" style="width: 100%;height: 80%;" src="https://api.vvhan.com/api/bing"/>
     </div>
-    <audio src="https://api.vvhan.com/api/rand.music?sort=热歌榜" controls loop></audio>
+    <audio style="visibility: hidden;" src="https://api.vvhan.com/api/rand.music?sort=热歌榜" controls loop autoplay></audio>
     <span id="text1"></span>
-<script src="https://xxxxcoder.gitee.io/pages/lv/index.min.js">
-        // https://xxxxcoder.gitee.io/pages/lv/index.min.js
+<script src="./index.min.js">
 </script>
-
+<script src='https://api.vvhan.com/api/snow'></script>
 <script type="text/javascript">
 
     var url = "https://api.vvhan.com/api/ian";
