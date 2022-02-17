@@ -14,26 +14,46 @@
     }
 </style>
 </head>
-<body>
+<body id="btn">
     <div class="content">
         <img id="img1" style="width: 100%;height: 80%;" src="https://api.vvhan.com/api/bing"/>
     </div>
-    <audio style="visibility: hidden;" src="https://api.vvhan.com/api/rand.music?sort=热歌榜" controls loop autoplay></audio>
+    <audio id="music1" style="visibility: hidden;" src="https://api.vvhan.com/api/rand.music?sort=热歌榜" controls loop autoplay></audio>
     <span id="text1"></span>
 <script src="./index.min.js">
 </script>
 <script src='https://api.vvhan.com/api/snow'></script>
 <script type="text/javascript">
 
-    var url = "https://api.vvhan.com/api/ian";
-    minAjax({
-        url: url,//request URL
-        type:"GET",//Request type GET/POST
-        data:{},
-        success: function(data){
-            document.getElementById("text1").innerHTML = data;
-        }
-    });
+var url = "https://api.vvhan.com/api/ian";
+minAjax({
+    url: url,//request URL
+    type:"GET",//Request type GET/POST
+    data:{},
+    success: function(data){
+        document.getElementById("text1").innerHTML = data;
+    }
+});
 
+function auto(){
+    var audio = document.getElementById('music1');
+    $("html").bind("touchstart", function bf() {
+        if(audio !== null) {
+            if(audio.paused) {
+                audio.play(); //audio.play();// 这个就是播放
+                $("#btn").addClass("active")
+            } else {
+               // audio.pause(); // 这个就是暂停
+               // $("#btn").removeClass("active")
+            }
+        }
+    })
+
+    $("html").one('touchstart',function(){
+        audio.play();
+    })
+} 
+
+auto()
 </script>
 </body>
