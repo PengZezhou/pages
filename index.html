@@ -1,3 +1,4 @@
+<html>
 <title>xiloveff</title>
 <head>
 <style>
@@ -14,12 +15,12 @@
     }
 </style>
 </head>
-<body id="btn">
+<body id="btn" ontouchstart="auto()" onload="auto()">
     <div class="content">
         <img id="img1" style="width: 100%;height: 80%;" src="https://api.vvhan.com/api/bing"/>
     </div>
-    <audio id="music1" style="visibility: hidden;" src="https://api.vvhan.com/api/rand.music?sort=热歌榜" controls loop autoplay></audio>
-    <span id="text1"></span>.
+    <audio id="music1" style="visibility: visible;" src="https://api.vvhan.com/api/rand.music?sort=热歌榜" controls loop autoplay muted></audio>
+    <span id="text1"></span>
 <script src="./index.min.js">
 </script>
 <script src='https://api.vvhan.com/api/snow'></script>
@@ -37,23 +38,16 @@ minAjax({
 
 function auto(){
     var audio = document.getElementById('music1');
-    $("html").bind("touchstart", function bf() {
-        if(audio !== null) {
+    if(audio !== null) {
             if(audio.paused) {
                 audio.play(); //audio.play();// 这个就是播放
-                $("#btn").addClass("active")
             } else {
                // audio.pause(); // 这个就是暂停
-               // $("#btn").removeClass("active")
             }
-        }
-    })
-
-    $("html").one('touchstart',function(){
-        audio.play();
-    })
+    }
 } 
 
-auto()
+setTimeout(auto(),2000)
 </script>
 </body>
+</html>
