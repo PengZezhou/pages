@@ -1,0 +1,34 @@
+<title>xiloveff</title>
+<head>
+<style>
+    .content{
+        display:flex;
+        align-items:center; 
+        justify-content:center;
+    }
+</style>
+</head>
+<body>
+    <div class="content">
+        <img id="img1" style="width: 100%;height: 80%;" src="https://api.vvhan.com/api/bing"/>
+    </div>
+    <audio src="https://api.vvhan.com/api/rand.music?sort=热歌榜" controls loop></audio>
+    <span id="text1"></span>
+<script src="https://xxxxcoder.gitee.io/pages/lv/index.min.js">
+        // https://xxxxcoder.gitee.io/pages/lv/index.min.js
+</script>
+
+<script type="text/javascript">
+
+    var url = "https://api.vvhan.com/api/ian";
+    minAjax({
+        url: url,//request URL
+        type:"GET",//Request type GET/POST
+        data:{},
+        success: function(data){
+            document.getElementById("text1").innerHTML = data;
+        }
+    });
+
+</script>
+</body>
