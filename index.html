@@ -77,27 +77,27 @@
 </script>
 <script src='https://api.vvhan.com/api/snow'></script>
 <script type="text/javascript">
-var url = "https://api.vvhan.com/api/ian";
+    var url = "https://api.vvhan.com/api/ian";
 
-minAjax({
-    url: url,//request URL
-    type:"GET",//Request type GET/POST
-    data:{},
-    success: function(data){
-        document.getElementById("text1").innerHTML = data;
-    }
-});
+    minAjax({
+        url: url,//request URL
+        type:"GET",//Request type GET/POST
+        data:{},
+        success: function(data){
+            document.getElementById("text1").innerHTML = data;
+        }
+    });
 
-function auto(){
-    var audio = document.getElementById('music1');
-    if(audio !== null) {
-            if(audio.paused) {
-                audio.play(); 
-            } else {
-               // audio.pause(); 
-            }
-    }
-} 
+    function auto(){
+        var audio = document.getElementById('music1');
+        if(audio !== null) {
+                if(audio.paused) {
+                    audio.play(); 
+                } else {
+                // audio.pause(); 
+                }
+        }
+    } 
 
 </script>
 </body>
