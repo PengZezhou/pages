@@ -1,0 +1,48 @@
+<html>
+<title>xiloveff</title>
+<head>
+<style>
+    #text1{
+        font-size: 40px;
+        font-weight: bolder;
+        display: block;
+        font-family: cursive;
+    }
+</style>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.29.0/theme/dracula.min.css"/>
+<script>window.codeTheme='dracula';</script>
+</head>
+<body id="btn">
+    <audio id="music1" style="visibility: hidden;" src="https://api.vvhan.com/api/rand.music?sort=热歌榜" controls loop autoplay></audio>
+    <div id="text1" onscroll="auto()"></div>
+<script src="../js/index.min.js">
+</script>
+<script src='https://api.vvhan.com/api/snow'></script>
+<script type="text/javascript">
+    var url = "http://api.tianapi.com/story/index";
+
+    minAjax({
+        url: url,//request URL
+        type:"GET",//Request type GET/POST
+        data:{key:"5ff20205cf5d09afd9cd4304dad13d88"},
+        success: function(data){
+            var c = JSON.parse(data).newslist[0];
+            document.title = c.title;
+            document.getElementById("text1").innerHTML = c.content;
+        }
+    });
+
+    function auto(){
+        var audio = document.getElementById('music1');
+        if(audio !== null) {
+                if(audio.paused) {
+                    audio.play(); 
+                } else {
+                // audio.pause(); 
+                }
+        }
+    } 
+
+</script>
+</body>
+</html>
