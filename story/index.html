@@ -8,24 +8,28 @@
         display: block;
         font-family: cursive;
         white-space: pre-line;
+        height: 999px;
     }
     body{
         padding: 99px;
         background-color: #e0eee8;
         line-height: 99px;
-        text-decoration: underline;
+        /* text-decoration: underline; */
     }
+    html, body{ height: 100%; }
 </style>
 </head>
-<body id="btn">
-    <audio id="music1" style="visibility: hidden;" src="https://api.vvhan.com/api/rand.music?sort=热歌榜" controls loop autoplay></audio>
-    <div id="text1" onscroll="auto()"></div>
+<body id="btn" ontouchstart ="auto()">
+    <audio id="music1" oncanplay="loading=true;" style="visibility: hidden;" src="https://api.vvhan.com/api/rand.music?sort=热歌榜" controls loop autoplay></audio>
+    <div id="text1"></div>
 <script src="../js/index.min.js">
+total = document.documentElement.clientHeight;
+document.getElementById("text1").style.height=(total-50)+"px";
 </script>
 <script src='https://api.vvhan.com/api/snow'></script>
 <script type="text/javascript">
     var url = "https://api.tianapi.com/story/index";
-
+    var loading = false;
     minAjax({
         url: url,//request URL
         type:"GET",//Request type GET/POST
@@ -40,7 +44,7 @@
     function auto(){
         var audio = document.getElementById('music1');
         if(audio !== null) {
-                if(audio.paused) {
+                if(audio.paused&&loading) {
                     audio.play(); 
                 } else {
                 // audio.pause(); 
